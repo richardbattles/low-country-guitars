@@ -1,0 +1,124 @@
+<link href="https://fonts.googleapis.com/css?family=Itim|Merienda|Roboto+Condensed" rel="stylesheet">
+<style>
+    body {
+        background-color: rgb(195, 241, 255);
+    }
+
+    .title {
+        font-size: 9vmin;
+        font-family: 'Merienda';
+    }
+
+    h1 {
+        text-align : center;
+    }
+
+    h2 {
+        font-size: 4vmin;
+        font-family: 'Itim';
+        margin-bottom: 0.7vh;
+        margin-left: 20px;
+    }
+
+    p {
+        font-family: 'Roboto Condensed';
+        font-size: 3vmin;
+        margin-left: 20px;
+    }
+
+    #productDetails {
+        background: white;
+        margin: 20px;
+        max-width: 1300px;
+    }
+
+    #price {
+        font-weight: bold;
+        font-size: 4vmin;
+    }
+
+    #image {
+        text-align: center;
+        float: left;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        background: white;
+        border-style: solid;
+        border-color: black;
+        border-width: 8px;
+    }
+</style>
+
+<script>
+    //code from https://forums.macrumors.com/threads/retrieving-query-string-parameters-in-html.605953/
+    function qs(search_for) {
+		var query = window.location.search.substring(1);
+		var parms = query.split('&');
+		for (var i=0; i<parms.length; i++) {
+			var pos = parms[i].indexOf('=');
+			if (pos > 0  && search_for == parms[i].substring(0,pos)) {
+				return parms[i].substring(pos+1);;
+			}
+		}
+		return "";
+	}
+
+    itemNames = ['Fender American Standard Stratocaster','Paul Reed Smith Custom 22','Gibson Les Paul Standard Mojeave Burst','Fender Eric Johnson Stratocaster','Fender Alternate Reality Meteora HH Pau Ferro','National Resolectric Revolver','Gibson ES-175 D Sunburst','Epiphone Noel Gallagher 335 Supernova',
+        'Fender EOB Ed O\'Brien Signature Sustainer Stratocaster','Fender American Standard VG Stratocaster','Fender Player Series Stratocaster Left Handed','Fender Telecaster','Gibson SG Electric Guitar','Fender Artist Series Jimmy Page Mirror Telecaster','Fender Custom Shop Classic Player\'s Stratocaster','Fender Buck Owens Signature Telecaster',
+        'Yamaha SGV800 "Flying Samurai"','Fender Bullet S-2','Fender Alternate Reality Series Sixty-Six HSS','Fender Rarities Flame Maple Top Strat','Fender LE American Pro Telecaster','Univox Ripper','Ibanez RGA121'
+    ];
+    itemDes = ['1988 - Excellent Condition','1995 - Excellent Condition','2018 - Mint Condition','2017 - Excellent Condition','Lake Placid Blue - Brand New Condition','Comes with Highlander DI Box - Excellent Condition','1961 - Excellent Condition','Union Jack - Excellent Condition',
+        'Olympic White - Brand New Condition','Black - Mint Condition','Left Handed - Brand New Condition','Buttery Blond - Very Good Condition','1961 Reissue - Very Good Condition','White Blonde - Brand New Condition','White Blonde - Very Good Condition','Red, White & Blue Sparkle - Mint Condition',
+        'Red Sparkle - Excellent Condition','2019, White Opal - Brand New Condition','1982, Red - Excellent Condition','2019, Three Tone Sunburst - Brand New Condition','Brand New Condition','Light Ash - Brand New Condition','White, Comes with Original Hard Shell Case - Very Good Condition','2006, Maple & Mahogany - Very Good Condition'
+    ];
+    images = ['https://images.reverb.com/image/upload/s--twe50dwu--/t_card-square/v1557005065/qrc1mztm8kckdpjcnifk.jpg','https://images.reverb.com/image/upload/s--C_vITCoW--/t_card-square/v1556846292/nuedmbv6ews4enqepxfe.jpg','https://images.reverb.com/image/upload/s--6QVUrPyX--/t_card-square/v1556829729/gnfmphuinodlbunfaf8x.jpg','https://images.reverb.com/image/upload/s--dn5ryYHt--/t_card-square/v1556820056/d35nc3gtqmwh8v3zxnrp.jpg','https://images.reverb.com/image/upload/s--2ZFVcRVq--/c_crop,h_0.450,w_1.000,x_0.000,y_0.492/t_card-square/v1556742259/wqdbqgfpgwhtxbpzjipu.jpg','https://images.reverb.com/image/upload/s--KE0kM3KF--/t_card-square/v1556826503/bqrqwuvdyuxnpjjxzdm8.jpg','https://images.reverb.com/image/upload/s--MuTAa7YJ--/t_card-square/v1556828147/qftv0jmzflqycxgm7edm.jpg','https://images.reverb.com/image/upload/s--_6iRQCC2--/t_card-square/v1556152642/bjfblcws8uao2y9up5tr.jpg',
+        'https://images.reverb.com/image/upload/s--MWvXmm5t--/t_card-square/v1556153794/i1dcw8f1egh3zwpcmef4.jpg','https://images.reverb.com/image/upload/s--egNnhmgA--/t_card-square/v1556064604/cizzpzxnrara6fyg8lhw.jpg','https://images.reverb.com/image/upload/s--qeu4eqQs--/t_card-square/v1555521383/aylcdiii6kgijvimffes.jpg','https://images.reverb.com/image/upload/s--ydQ-70Dt--/t_card-square/v1555461933/rcepo0txy0s4ccavu8ez.jpg','https://images.reverb.com/image/upload/s--zqzOGMfl--/t_card-square/v1555446365/z7oanhgkiwq0jrvotsyk.jpg','https://images.reverb.com/image/upload/s--p6l45Maz--/t_card-square/v1555274340/pxlme5zfdmlxqdptlm1w.jpg','https://images.reverb.com/image/upload/s--WAd85t10--/t_card-square/v1555100276/jwyc7qk05rfhkudopmzf.jpg','https://images.reverb.com/image/upload/s--gC5wyUI_--/t_card-square/v1554939008/cjkc3vxamhu54tspd9qv.jpg',
+        'https://images.reverb.com/image/upload/s--jNxuFPA2--/t_card-square/v1554511172/ixi4u7yztmuy3psrcvvx.jpg','https://images.reverb.com/image/upload/s--ZdRCFZqA--/t_card-square/v1553979282/uizsjju82bbz0sctpmo7.jpg','https://images.reverb.com/image/upload/s--4hP19iua--/t_card-square/v1553824571/lttnb5prvqb7ytsbjxmp.jpg','https://images.reverb.com/image/upload/s--krSDMZV7--/t_card-square/v1553626693/i1sjmfvuevedrisrcbnx.jpg','https://images.reverb.com/image/upload/s--L8zhNtWz--/t_card-square/v1553564091/c8aiyzr4qnz2mvrfkzub.jpg','https://images.reverb.com/image/upload/s--JYCIhPeE--/t_card-square/v1553288704/hh6jo2mtzmcpwcdeuupv.jpg','https://images.reverb.com/image/upload/s--mc0q45wz--/t_card-square/v1552517298/hnatfrkdq4d13oyzxfns.jpg','https://images.reverb.com/image/upload/s--VpBAtNfM--/t_card-square/v1552348313/tdgjk8y8r751tw1cjlee.jpg'
+    ];
+    prices = ['$1,199','$2,199','$2,999','$1,399','$999.99','$2,799','$15,500','$1,499',
+        '$1,124.99','$950','$674.99','$5,995','$1,499','$2,499.99','$2,399','$3,995',
+        '$1,099','$899.99','$699','$899.99','$2,499.99','$1,749.99','$850','$849'
+    ];
+</script>
+
+
+
+<h1 class="title">Low Country Guitars</h1>
+
+<div id="productDetails"></div>
+
+
+
+<script>
+    var i = qs("index");
+
+    imag = document.createElement("img");
+    imag.src = images[i];
+    imag.id = "image";
+    window.onload = function() {
+        var productDetails = document.getElementById("productDetails");
+        
+        var nam = document.createTextNode(itemNames[i]);
+        var productName = document.createElement("h2");
+        productName.appendChild(nam);
+        productDetails.appendChild(productName);
+
+        var des = document.createTextNode(itemDes[i]);
+        var productDescription = document.createElement("p");
+        productDescription.appendChild(des);
+        productDetails.appendChild(productDescription);
+
+        var pri = document.createTextNode(prices[i]);
+        var productPrice = document.createElement("p");
+        productPrice.id = "price";
+        productPrice.appendChild(pri);
+        productDetails.appendChild(productPrice);
+
+        var call = document.createElement("p");
+        call.appendChild(document.createTextNode("Call us at (843) 668-7325 to place an order!"));
+        productDetails.appendChild(call);
+
+        document.body.insertBefore(imag, productDetails);
+    };
+</script>

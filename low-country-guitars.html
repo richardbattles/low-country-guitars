@@ -1,0 +1,203 @@
+<link href="https://fonts.googleapis.com/css?family=Itim|Merienda|Roboto+Condensed" rel="stylesheet">
+<style>
+    body {
+        background-color: rgb(195, 241, 255);
+    }
+
+    .title {
+        font-size: 9vmin;
+        font-family: 'Merienda';
+    }
+
+    h1 {
+        text-align : center;
+    }
+
+    h2 {
+        font-size: 4vmin;
+        font-family: 'Itim';
+        margin-bottom: 0.7vh;
+        margin-left: 20px;
+    }
+
+    p {
+        font-family: 'Roboto Condensed';
+        font-size: 2.5vmin;
+        margin-left: 20px;
+    }
+
+    #about {
+        background: rgb(140, 166, 250);
+        border-style: solid;
+        border-color: rgb(12, 11, 124);
+        border-width: 3px;
+        border-radius: 1vmin; 
+    }
+
+    button {
+        font-family: 'Roboto Condensed';
+        font-size: 2vmin;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    #pages {
+        clear: both;
+    }
+
+    .page {
+        float: top;
+    }
+
+    .item-list {
+        font-size: 5vmin;
+        font-family: 'Itim';
+    }
+
+    .item {
+        text-align: center;
+        float: left;
+        margin-left: 20px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        background: white;
+        border-style: solid;
+        border-color: black;
+        border-width: 4px;
+        width: 333px;
+        height: 600px;
+    }
+    
+    .item-image {
+        border-style: solid;
+        border-color: black;
+        border-width: 4px;
+        text-align: center;
+    }
+
+    .item-name {
+        font-size: 28px;
+        font-family: 'Itim';
+        clear: both;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .item-description {
+        font-size: 20px;
+        font-family: 'Roboto Condensed';
+        clear: both;
+        text-align: center;
+    }
+</style>
+
+
+<h1 class="title">Low Country Guitars</h1>
+<h2>About Us:</h2>
+<p id="about">We're a simple guitar store dedicated to our customers.  We offer high quality products and high quality service.  Check us out at 100 Guitar Lane, or call us at (843) 668-7325, or (843) NOT-REAL.  Our hours are 1AM - 1:30AM Monday through Friday, and 3:43AM - 3:44AM Saturday and Sunday.</p>
+<h2>Our store's items:</h2>
+<p>Click on any product below for details.</p>
+<div id="pages">
+    <button onclick="page1()" id="pageOneButton" class="page">Page One</button>
+    <button onclick="page2()" id="pageTwoButton" class="page">Page Two</button>
+    <button onclick="page3()" id="pageThreeButton" class="page">Page Three</button>
+</div>
+<div id="itemList" class="item-list"></div>
+
+
+
+
+<script>
+    var itemNames = ['Fender American Standard Stratocaster','Paul Reed Smith Custom 22','Gibson Les Paul Standard Mojeave Burst','Fender Eric Johnson Stratocaster','Fender Alternate Reality Meteora HH Pau Ferro','National Resolectric Revolver','Gibson ES-175 D Sunburst','Epiphone Noel Gallagher 335 Supernova',
+        'Fender EOB Ed O\'Brien Signature Sustainer Stratocaster','Fender American Standard VG Stratocaster','Fender Player Series Stratocaster Left Handed','Fender Telecaster','Gibson SG Electric Guitar','Fender Artist Series Jimmy Page Mirror Telecaster','Fender Custom Shop Classic Player\'s Stratocaster','Fender Buck Owens Signature Telecaster',
+        'Yamaha SGV800 "Flying Samurai"','Fender Bullet S-2','Fender Alternate Reality Series Sixty-Six HSS','Fender Rarities Flame Maple Top Strat','Fender LE American Pro Telecaster','Univox Ripper','Ibanez RGA121'
+    ];
+    var itemDes = ['1988 - Excellent Condition','1995 - Excellent Condition','2018 - Mint Condition','2017 - Excellent Condition','Lake Placid Blue - Brand New Condition','Comes with Highlander DI Box - Excellent Condition','1961 - Excellent Condition','Union Jack - Excellent Condition',
+        'Olympic White - Brand New Condition','Black - Mint Condition','Left Handed - Brand New Condition','Buttery Blond - Very Good Condition','1961 Reissue - Very Good Condition','White Blonde - Brand New Condition','White Blonde - Very Good Condition','Red, White & Blue Sparkle - Mint Condition',
+        'Red Sparkle - Excellent Condition','2019, White Opal - Brand New Condition','1982, Red - Excellent Condition','2019, Three Tone Sunburst - Brand New Condition','Brand New Condition','Light Ash - Brand New Condition','White, Comes with Original Hard Shell Case - Very Good Condition','2006, Maple & Mahogany - Very Good Condition'
+    ];
+    var images = ['https://images.reverb.com/image/upload/s--twe50dwu--/t_card-square/v1557005065/qrc1mztm8kckdpjcnifk.jpg','https://images.reverb.com/image/upload/s--C_vITCoW--/t_card-square/v1556846292/nuedmbv6ews4enqepxfe.jpg','https://images.reverb.com/image/upload/s--6QVUrPyX--/t_card-square/v1556829729/gnfmphuinodlbunfaf8x.jpg','https://images.reverb.com/image/upload/s--dn5ryYHt--/t_card-square/v1556820056/d35nc3gtqmwh8v3zxnrp.jpg','https://images.reverb.com/image/upload/s--2ZFVcRVq--/c_crop,h_0.450,w_1.000,x_0.000,y_0.492/t_card-square/v1556742259/wqdbqgfpgwhtxbpzjipu.jpg','https://images.reverb.com/image/upload/s--KE0kM3KF--/t_card-square/v1556826503/bqrqwuvdyuxnpjjxzdm8.jpg','https://images.reverb.com/image/upload/s--MuTAa7YJ--/t_card-square/v1556828147/qftv0jmzflqycxgm7edm.jpg','https://images.reverb.com/image/upload/s--_6iRQCC2--/t_card-square/v1556152642/bjfblcws8uao2y9up5tr.jpg',
+        'https://images.reverb.com/image/upload/s--MWvXmm5t--/t_card-square/v1556153794/i1dcw8f1egh3zwpcmef4.jpg','https://images.reverb.com/image/upload/s--egNnhmgA--/t_card-square/v1556064604/cizzpzxnrara6fyg8lhw.jpg','https://images.reverb.com/image/upload/s--qeu4eqQs--/t_card-square/v1555521383/aylcdiii6kgijvimffes.jpg','https://images.reverb.com/image/upload/s--ydQ-70Dt--/t_card-square/v1555461933/rcepo0txy0s4ccavu8ez.jpg','https://images.reverb.com/image/upload/s--zqzOGMfl--/t_card-square/v1555446365/z7oanhgkiwq0jrvotsyk.jpg','https://images.reverb.com/image/upload/s--p6l45Maz--/t_card-square/v1555274340/pxlme5zfdmlxqdptlm1w.jpg','https://images.reverb.com/image/upload/s--WAd85t10--/t_card-square/v1555100276/jwyc7qk05rfhkudopmzf.jpg','https://images.reverb.com/image/upload/s--gC5wyUI_--/t_card-square/v1554939008/cjkc3vxamhu54tspd9qv.jpg',
+        'https://images.reverb.com/image/upload/s--jNxuFPA2--/t_card-square/v1554511172/ixi4u7yztmuy3psrcvvx.jpg','https://images.reverb.com/image/upload/s--ZdRCFZqA--/t_card-square/v1553979282/uizsjju82bbz0sctpmo7.jpg','https://images.reverb.com/image/upload/s--4hP19iua--/t_card-square/v1553824571/lttnb5prvqb7ytsbjxmp.jpg','https://images.reverb.com/image/upload/s--krSDMZV7--/t_card-square/v1553626693/i1sjmfvuevedrisrcbnx.jpg','https://images.reverb.com/image/upload/s--L8zhNtWz--/t_card-square/v1553564091/c8aiyzr4qnz2mvrfkzub.jpg','https://images.reverb.com/image/upload/s--JYCIhPeE--/t_card-square/v1553288704/hh6jo2mtzmcpwcdeuupv.jpg','https://images.reverb.com/image/upload/s--mc0q45wz--/t_card-square/v1552517298/hnatfrkdq4d13oyzxfns.jpg','https://images.reverb.com/image/upload/s--VpBAtNfM--/t_card-square/v1552348313/tdgjk8y8r751tw1cjlee.jpg'
+    ];
+
+    var paje = 0; //In case "page" is a keyword; I don't think so, but can't be too safe.
+
+    //qs function from https://forums.macrumors.com/threads/retrieving-query-string-parameters-in-html.605953/
+    function qs(search_for) {
+		var query = window.location.search.substring(1);
+		var parms = query.split('&');
+		for (var i=0; i<parms.length; i++) {
+			var pos = parms[i].indexOf('=');
+			if (pos > 0  && search_for == parms[i].substring(0,pos)) {
+				return parms[i].substring(pos+1);;
+			}
+		}
+		return "";
+	}
+    
+    function addImages() {
+        section = document.getElementById("itemList");
+
+        for(var i = 8*paje; i < 8+8*paje && i < itemNames.length && i < images.length; i++)
+        {
+            item = document.createElement("div");
+            item.className = "item";
+
+            anchor = document.createElement("a");
+            anchor.href = "product.html?index="+i;
+
+            imag = document.createElement("img");
+            imag.className = "item-image";
+            imag.src = images[i];
+            imag.style.width = "325px";
+            imag.style.height = "325px";
+            anchor.appendChild(imag);
+            itemName = document.createElement("p");
+            itemName.className = "item-name";
+
+            des = document.createElement("p");
+            des.className = "item-description";
+
+            node = document.createTextNode(itemNames[i]);
+            itemName.appendChild(node);
+
+            node = document.createTextNode(itemDes[i])
+            des.appendChild(node);
+            
+            
+            item.appendChild(anchor);
+            item.appendChild(itemName);
+            item.appendChild(des);
+
+            section.appendChild(item);
+        }
+    }
+    
+    document.onload = addImages();
+
+    function page1() {
+        paje = 0;
+        var removeMe = document.getElementsByClassName("item");
+        while(removeMe.length > 0){
+            removeMe[0].parentNode.removeChild(removeMe[0]);
+        }
+        addImages();
+    };
+    function page2() {
+        paje = 1;
+        var removeMe = document.getElementsByClassName("item");
+        while(removeMe.length > 0){
+            removeMe[0].parentNode.removeChild(removeMe[0]);
+        }
+        addImages();
+    };
+    function page3() {
+        paje = 2;
+        var removeMe = document.getElementsByClassName("item");
+        while(removeMe.length > 0){
+            removeMe[0].parentNode.removeChild(removeMe[0]);
+        }
+        addImages();
+    };
+</script>
